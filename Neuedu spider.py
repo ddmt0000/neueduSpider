@@ -43,7 +43,12 @@ for i in range(280,338): #爬取页面范围
     first_video_src = video_sources[0] if video_sources else None
     if first_video_src:
         print(f"First video source URL: {first_video_src}")
-        r.write(f"[title:{span_title}]: {host}{first_video_src}\n") # 写入文件格式化（实例：[title:xxxx]: https://gzyy.neuedu.com/xxxx）
+        # 写入文件格式化-普通（实例：[title:xxxx]: https://gzyy.neuedu.com/xxxx）
+        r.write(f"[title:{span_title}]: {host}{first_video_src}\n") 
+        # 写入文件格式化-通用剪贴板（实例：https://gzyy.neuedu.com/xxxx）
+        # r.write(f"{host}{first_video_src}\n") 
+        # 写入文件格式化-m3u（实例：title:xxxx,https://gzyy.neuedu.com/xxxx）
+        # r.write(f"{span_title},{host}{first_video_src}\n") 
     time.sleep(1)
 
 #以上sleep均是为了保证程序运行稳定，非必要且时间可调
